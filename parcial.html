@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="./estilos.css" /> -->
+    <title>Primer Parcial - Soa Maximiliano</title>
+  </head>
+  <body>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .frm-abm {
+        display: flex;
+        justify-content: center;
+        margin: 50px;
+      }
+
+      .frm-datos {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .frm-datos-top {
+        display: flex;
+        flex-direction: column;
+        max-width: fit-content;
+        margin-bottom: 30px;
+      }
+
+      .frm-datos-col {
+      }
+
+      .tabla,
+      .tabla th,
+      td {
+        border: 1px solid #000;
+      }
+
+      .frm-abm input,
+      .frm-datos span {
+        width: 100%;
+        margin: 5px;
+      }
+    </style>
+    <h3>SOSA MAXIMILIANO</h3>
+
+    <div class="frm-datos" id="frm-datos">
+      <div class="frm-datos-top" id="frm-datos-top">
+        <label for="">Form Datos</label>
+        <span>Filtrar por:</span>
+        <select name="filtrar-datos" id="">
+          <option value="id">ID</option>
+          <option value="">Nombre</option>
+          <option value="">Apellido</option>
+          <option value="">Edad</option>
+          <option value="">Alter Ego</option>
+          <option value="">Ciudad</option>
+          <option value="">Publicado</option>
+          <option value="">Enemigo</option>
+          <option value="">Robos</option>
+          <option value="">Asesinatos</option>
+        </select>
+        <span>Calcular edad promedio:</span>
+        <input type="text" />
+        <button>Calcular</button>
+      </div>
+
+      <div class="frm-datos-col">
+        <label for="">Mostrar Columnas:</label><br />
+        <input type="checkbox" id="chk" />
+        <label for="ID">ID</label>
+        <input type="checkbox" id="chk" />
+        <label for="NOMBRE">NOMBRE</label>
+        <input type="checkbox" id="chk" />
+        <label for="APELLIDO">APELLIDO</label>
+        <input type="checkbox" id="chk" />
+        <label for="EDAD">EDAD</label>
+        <input type="checkbox" id="chk" />
+        <label for="ALTER-EGO">ALTER-EGO</label>
+        <input type="checkbox" id="chk" />
+        <label for="CIUDAD">CIUDAD</label>
+        <input type="checkbox" id="chk" />
+        <label for="PUBLICADO">PUBLICADO</label>
+        <input type="checkbox" id="chk" />
+        <label for="ENEMIGO">ENEMIGO</label>
+        <input type="checkbox" id="chk" />
+        <label for="ROBOS">ROBOS</label>
+        <input type="checkbox" id="chk" />
+        <label for="ASESINATOS">ASESINATOS</label>
+        <table class="tabla">
+          <thead>
+            <tr>
+              <th><button>ID</button></th>
+              <th><button>NOMBRE</button></th>
+              <th><button>APELLIDO</button></th>
+              <th><button>EDAD</button></th>
+              <th><button>ALTER EGO</button></th>
+              <th><button>CIUDAD</button></th>
+              <th><button>PUBLICADO</button></th>
+              <th><button>ENEMIGO</button></th>
+              <th><button>ROBOS</button></th>
+              <th><button>ASESINATOS</button></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>x</td>
+              <td>x</td>
+              <td>x</td>
+              <td>x</td>
+              <td>x</td>
+              <td>x</td>
+              <td>x</td>
+              <td>x</td>
+              <td>x</td>
+              <td>x</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="frm-abm" id="frm-abm">
+      <form action="">
+        <label for="">Formulario ABM</label><br />
+        <input type="text" placeholder="ID" /><br />
+        <input type="text" placeholder="Nombre" /><br />
+        <input type="text" placeholder="Apellido" /><br />
+        <input type="text" placeholder="Edad" /><br />
+        <span>Tipo:</span>
+        <select name="" id="">
+          <option value="heroe">Heroe</option>
+          <option value="villano">Villano</option></select
+        ><br />
+        <div id="heroe">
+          <input type="text" placeholder="Alter Ego" id="alter" /><br />
+          <input type="text" placeholder="Ciudad" id="ciudad" /><br />
+          <input type="text" placeholder="Publicado" id="publicado" /><br />
+        </div>
+        <div id="villano">
+          <input type="text" placeholder="Enemigo" id="enemigo" /><br />
+          <input type="text" placeholder="Robos" id="robos" /><br />
+          <input type="text" placeholder="Asesinatos" id="asesinatos" /><br />
+        </div>
+        <input type="button" value="Alta" />
+        <input type="button" value="Modificar" />
+        <input type="button" value="Eliminar" />
+        <input type="button" value="Cancelar" />
+      </form>
+    </div>
+    <!-- <script src="./parcial.js"></script> -->
+    <script>
+      class Persona {
+        constructor(nombre, apellido, edad) {
+          this.nombre = nombre;
+          this.apellido = apellido;
+          this.edad = edad;
+          this.id;
+        }
+      }
+
+      class Heroe extends Persona {
+        constructor(nombre, apellido, edad, alterEgo, ciudad, publicado) {
+          super(nombre, apellido, edad);
+          this.alterEgo = alterEgo;
+          this.ciudad = ciudad;
+          this.publicado = publicado;
+          this.id;
+        }
+      }
+
+      class Villano extends Persona {
+        constructor(nombre, apellido, edad, enemigo, robos, asesinatos) {
+          super(nombre, apellido, edad);
+          this.enemigo = enemigo;
+          this.robos = robos;
+          this.asesinatos = asesinatos;
+          this.id;
+        }
+      }
+
+      let j = [
+        {
+          id: 1,
+          nombre: "Clark",
+          apellido: "Kent",
+          edad: 45,
+          alterego: "Superman",
+          ciudad: "Metropolis",
+          publicado: 2002,
+        },
+        {
+          id: 2,
+          nombre: "Bruce",
+          apellido: "Wayne",
+          edad: 35,
+          alterego: "Batman",
+          ciudad: "Gotica",
+          publicado: 20012,
+        },
+        {
+          id: 3,
+          nombre: "Bart",
+          apellido: "Alen",
+          edad: 30,
+          alterego: "Flash",
+          ciudad: "Central",
+          publicado: 2017,
+        },
+        {
+          id: 4,
+          nombre: "Lex",
+          apellido: "Luthor",
+          edad: 18,
+          enemigo: "Superman",
+          robos: 500,
+          asesinatos: 7,
+        },
+        {
+          id: 5,
+          nombre: "Harvey",
+          apellido: "Dent",
+          edad: 20,
+          enemigo: "Batman",
+          robos: 750,
+          asesinatos: 2,
+        },
+        {
+          id: 666,
+          nombre: "Celina",
+          apellido: "kyle",
+          edad: 23,
+          enemigo: "Batman",
+          robos: 25,
+          asesinatos: 1,
+        },
+      ];
+
+      let o = Object.entries(j);
+
+      let chk = document.querySelectorAll("#chk");
+
+      let frmAbm = document.querySelector("#frm-abm");
+
+      let tipo = frmAbm.querySelector("select");
+
+      tipo.addEventListener("change", () => {
+        switch (tipo.value) {
+          case "heroe":
+            document.querySelector("#heroe").style = "display:block";
+            document.querySelector("#villano").style = "display:none";
+            break;
+
+          case "villano":
+            document.querySelector("#villano").style = "display:block";
+            document.querySelector("#heroe").style = "display:none";
+            break;
+        }
+      });
+
+      let columnas = document.querySelector(".tabla").querySelector("tr");
+      let celda = document.createElement("td");
+
+    </script>
+  </body>
+</html>
